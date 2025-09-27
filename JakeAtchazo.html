@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Cris N. Atchazo - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Body */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Nav */
+        nav {
+            background-color: #ffffff;
+            color: #333;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: left;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 14px 16px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Profile */
+        :root {
+            --primary-bg-light: #f0f0f0;
+            --primary-bg-dark: #000000;
+            --text-dark: #333;
+            --text-light: #fff;
+            --accent-color: #007bff;
+            --button-bg: #fff;
+            --button-text: #000;
+        }
+        .page-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .top-nav {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            background-color: var(--primary-bg-dark);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px 40px;
+            gap: 30px;
+        }
+        .top-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+        .top-nav a:hover {
+            color: var(--accent-color);
+        }
+        .hero-left {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            background-color: var(--primary-bg-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .hero-left::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            bottom: 0;
+            width: 200px;
+            background-color: var(--primary-bg-light);
+            transform: skewX(-15deg);
+            z-index: 0;
+        }
+        .hero-left h1 {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .hero-left h2 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.1;
+        }
+        .hero-left p {
+            font-size: 1.0em;
+            font-weight: 400;
+            margin-top: 10px;
+            color: #666;
+        }
+        .social-icons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+        .social-icons a:hover {
+            background-color: #ccc;
+        }
+
+        /* Social */
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        .social-icons a.email-text-link {
+            font-size: 1em;
+            color: #333;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .social-icons a.email-text-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Profile - continued */
+        .hero-right {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            background-color: var(--primary-bg-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-right img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        .it-berries-section {
+            grid-column: 1 / 3;
+            grid-row: 3 / 4;
+            background-color: var(--primary-bg-dark);
+            color: var(--text-light);
+            padding: 40px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .it-berries-content {
+            max-width: 70%;
+            text-align: left;
+        }
+        .it-berries-content h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .it-berries-content p {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        .it-berries-content .read-more {
+            background-color: transparent;
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .it-berries-content .read-more:hover {
+            background-color: var(--text-light);
+            color: var(--primary-bg-dark);
+        }
+        .it-berries-bg-text {
+            position: absolute;
+            right: 80px;
+            font-size: 8em;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+        @media (max-width: 992px) {
+            .page-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
+                height: auto;
+            }
+            .top-nav {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+                justify-content: center;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            .hero-left {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                padding: 40px 20px;
+                text-align: center;
+                align-items: center;
+            }
+            .hero-left::after {
+                display: none;
+            }
+            .logo {
+                position: static;
+                margin-bottom: 20px;
+            }
+            .hero-right {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                height: 400px;
+            }
+            .hero-right img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            .it-berries-section {
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+                padding: 30px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .it-berries-content {
+                max-width: 100%;
+            }
+            .it-berries-bg-text {
+                right: 20px;
+                font-size: 5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+    </nav>
+
+    <div class="hero-left">
+        <div class="logo">DEV</div>
+        <h1>Hi, I am</h1>
+        <h2>Jake Cris N. Atchazo</h2>
+        <p>Junior Web Developer</p>
+        <div class="social-icons">
+            <a href="https://github.com/Tosshhii" target="_blank" title="GitHub">
+                <img src="images/github.png" alt="GitHub">
+            </a>
+            <a href="https://www.facebook.com/jk.atzo" target="_blank" title="Facebook">
+                <img src="images/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://x.com/StJak33y" target="_blank" title="X (Twitter)">
+                <img src="images/X.png" alt="X (Twitter)">
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <img src="images/jake.png" alt="Jake Cris N. Atchazo's Avatar">
+    </div>
+
+    <div class="it-berries-section">
+        <div class="it-berries-content">
+            <h3>Ready to Collaborate?</h3>
+            <p>Looking for my next opportunity to make a change. The digital way.</p>
+            <a href="mailto:atchazoj6@gmail.com" class="read-more">GET IN TOUCH</a>
+        </div>
+        <div class="it-berries-bg-text">IT</div>
+    </div>
+</div>
+
+</body>
+</html>
