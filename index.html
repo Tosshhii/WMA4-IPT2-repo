@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT BERRIES - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and HTML Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Nav Bar Styles - Common to all pages */
+        nav {
+            background-color: #ffffff;
+            color: #333;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: left;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 14px 16px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* --- Landing Page Styles (index.html) --- */
+        .landing-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+        }
+        .intro-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .intro-box:hover {
+            transform: scale(1.02);
+        }
+        .intro-box h1 {
+            font-size: 3.5em;
+            color: #007bff;
+            margin-bottom: 0.2em;
+        }
+        .intro-box p {
+            font-size: 1.2em;
+            color: #666;
+            margin: 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Basic responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            .intro-box {
+                padding: 20px;
+                margin: 10px;
+            }
+            .intro-box h1 {
+                font-size: 2.5em;
+            }
+            .intro-box p {
+                font-size: 1em;
+            }
+            nav a {
+                display: block;
+                padding: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+</nav>
+
+<div class="landing-content">
+    <div class="intro-box">
+        <h1>Welcome to IT Berries</h1>
+        <p>A group of passionate developers creating innovative web and mobile solutions.</p>
+        <a href="" class="cta-button">MEET OUR MEMBERS</a>
+    </div>
+</div>
+
+</body>
+</html>
