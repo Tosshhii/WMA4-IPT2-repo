@@ -3,327 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jake Cris N. Atchazo - Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Jake Cris N. Atchazo - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Body */
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+        :root {
+            --color-primary: #0099E1;
+            --color-secondary: #4CAF50;
+            --color-tertiary: #FF3333;
+            --color-text-dark: #333;
+            --color-background-blue: #E3F2FD;
+            --color-background-green: #E8F5E8;
+            --font-heading: 'Fredoka One', cursive;
+            --font-body: 'Nunito', sans-serif;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            box-sizing: border-box;
         }
 
-        /* Nav */
-        nav {
-            background-color: #ffffff;
-            color: #333;
-            padding: 15px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: left;
-        }
-        nav a {
-            color: #333;
-            text-decoration: none;
-            padding: 14px 16px;
-            display: inline-block;
-            font-weight: 600;
-        }
-        nav a:hover {
-            color: #007bff;
-        }
-
-        /* Profile */
-        :root {
-            --primary-bg-light: #f0f0f0;
-            --primary-bg-dark: #000000;
-            --text-dark: #333;
-            --text-light: #fff;
-            --accent-color: #007bff;
-            --button-bg: #fff;
-            --button-text: #000;
-        }
-        .page-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto 1fr auto;
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #87CEEB 0%, var(--color-secondary) 50%, #8B4513 100%);
             height: 100vh;
             overflow: hidden;
         }
-        .top-nav {
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
-            background-color: var(--primary-bg-dark);
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 20px 40px;
-            gap: 30px;
-        }
-        .top-nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95em;
-            transition: color 0.3s ease;
-        }
-        .top-nav a:hover {
-            color: var(--accent-color);
-        }
-        .hero-left {
-            grid-column: 1 / 2;
-            grid-row: 1 / 3;
-            background-color: var(--primary-bg-light);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 80px;
-            position: relative;
-            z-index: 1;
-        }
-        .logo {
-            position: absolute;
-            top: 40px;
-            left: 80px;
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        .hero-left::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -100px;
-            bottom: 0;
-            width: 200px;
-            background-color: var(--primary-bg-light);
-            transform: skewX(-15deg);
-            z-index: 0;
-        }
-        .hero-left h1 {
-            font-size: 1.2em;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-        .hero-left h2 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin: 0;
-            line-height: 1.1;
-        }
-        .hero-left p {
-            font-size: 1.0em;
-            font-weight: 400;
-            margin-top: 10px;
-            color: #666;
-        }
-        .social-icons {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-        }
-        .social-icons a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: #e0e0e0;
-            transition: background-color 0.3s ease;
-        }
-        .social-icons a:hover {
-            background-color: #ccc;
+
+        .resume {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 25vh 75vh;
+            color: white;
         }
 
-        /* Social */
-        .social-icons img {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-        }
-        .social-icons a.email-text-link {
-            font-size: 1em;
-            color: #333;
-            text-decoration: none;
-            margin-left: 10px;
-        }
-        .social-icons a.email-text-link:hover {
-            text-decoration: underline;
+        /* --- Header Section --- */
+        .header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            box-shadow: inset 0 -10px 0 rgba(0,0,0,0.2);
         }
 
-        /* Profile - continued */
-        .hero-right {
-            grid-column: 2 / 3;
-            grid-row: 2 / 3;
-            background-color: var(--primary-bg-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
+        .header::before {
+            content: '🚀✨👨‍💻';
+            position: absolute;
+            top: 20px;
+            right: 60px;
+            font-size: 3em;
+            opacity: 0.3;
         }
-        .hero-right img {
-            max-width: 100%;
-            height: 100%;
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            z-index: 2;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 20px;
+            border: 6px solid white;
             object-fit: cover;
-            object-position: center;
-            display: block;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
-        .it-berries-section {
-            grid-column: 1 / 3;
-            grid-row: 3 / 4;
-            background-color: var(--primary-bg-dark);
-            color: var(--text-light);
-            padding: 40px 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        .it-berries-content {
-            max-width: 70%;
-            text-align: left;
-        }
-        .it-berries-content h3 {
-            font-size: 1.8em;
-            font-weight: 700;
+
+        .header-text h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5em;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
             margin-bottom: 10px;
         }
-        .it-berries-content p {
-            font-size: 0.9em;
+
+        .contact {
+            font-size: 1.3em;
+            font-weight: 600;
             line-height: 1.6;
-            color: #ccc;
         }
-        .it-berries-content .read-more {
-            background-color: transparent;
-            border: 1px solid var(--text-light);
-            color: var(--text-light);
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 20px;
-            display: inline-block;
-            transition: background-color 0.3s ease, color 0.3s ease;
+
+        /* --- Main Content Section --- */
+        .main {
+            background: white;
+            color: var(--color-text-dark);
+            padding: 40px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            overflow-y: auto;
         }
-        .it-berries-content .read-more:hover {
-            background-color: var(--text-light);
-            color: var(--primary-bg-dark);
+
+        /* Updated Grid Layout */
+        .personal-data {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
         }
-        .it-berries-bg-text {
+        .skills {
+            grid-column: 2 / 3;
+            grid-row: 1;
+        }
+        .tech {
+            grid-column: 2 / 3;
+            grid-row: 2;
+        }
+        .hobbies {
+            grid-column: 1 / 2;
+            grid-row: 2;
+        }
+        .education-full {
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+
+        .section {
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            border-radius: 20px;
+            padding: 30px;
+            border: 4px solid var(--color-secondary);
+            box-shadow:
+                inset 3px 3px 10px rgba(255,255,255,0.8),
+                inset -3px -3px 10px rgba(0,0,0,0.1),
+                0 8px 25px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(45deg, var(--color-background-green), var(--color-background-blue));
+            padding: 15px;
+            border-radius: 15px;
+            border: 3px solid var(--color-secondary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .section ul {
+            list-style: none;
+        }
+
+        .section li {
+            margin: 10px 0;
+            padding: 8px 0;
+            font-weight: 600;
+            position: relative;
+            /* No padding-left here since emojis are inline */
+        }
+        
+        /* This CSS rule is no longer needed */
+        /*
+        .section li::before {
+            content: '📌';
             position: absolute;
-            right: 80px;
-            font-size: 8em;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.05);
-            pointer-events: none;
-            user-select: none;
-            z-index: 0;
+            left: 0;
+            font-size: 1.2em;
         }
-        @media (max-width: 992px) {
-            .page-container {
+        */
+
+        .education li {
+            background: linear-gradient(135deg, var(--color-background-blue), var(--color-background-green));
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 6px solid var(--color-tertiary);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* This CSS rule is no longer needed */
+        /*
+        .education li::before {
+            content: '🏫';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2em;
+        }
+        */
+
+        .school-name {
+            font-size: 1.2em;
+            color: var(--color-primary);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .school-location {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .year {
+            color: var(--color-tertiary);
+            font-weight: 800;
+            font-size: 1.1em;
+            float: right;
+            background: rgba(255,51,51,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1200px) {
+            .main {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto auto 1fr auto;
+            }
+            .header, .main {
+                padding: 30px 40px;
+            }
+            .personal-data, .skills, .tech, .hobbies, .education-full {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+            }
+            .resume {
                 height: auto;
+                grid-template-rows: auto auto;
             }
-            .top-nav {
-                grid-column: 1 / 2;
-                grid-row: 1 / 2;
-                justify-content: center;
-                gap: 15px;
-                padding: 15px 20px;
+            .main {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 20px;
             }
-            .hero-left {
-                grid-column: 1 / 2;
-                grid-row: 3 / 4;
-                padding: 40px 20px;
-                text-align: center;
-                align-items: center;
+            .header {
+                padding: 20px;
             }
-            .hero-left::after {
-                display: none;
-            }
-            .logo {
-                position: static;
-                margin-bottom: 20px;
-            }
-            .hero-right {
-                grid-column: 1 / 2;
-                grid-row: 2 / 3;
-                height: 400px;
-            }
-            .hero-right img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-            .it-berries-section {
-                grid-column: 1 / 2;
-                grid-row: 4 / 5;
-                padding: 30px 20px;
+            .profile-section {
                 flex-direction: column;
                 text-align: center;
             }
-            .it-berries-content {
-                max-width: 100%;
+            .header-text h1 {
+                font-size: 2.5em;
             }
-            .it-berries-bg-text {
-                right: 20px;
-                font-size: 5em;
+            .education ul {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <div class="resume">
+        <header class="header">
+            <div class="profile-section">
+                <img src="images/jake.png" alt="Jake Cris N. Atchazo" class="profile-pic" onerror="this.style.display='none'">
+                <div class="header-text">
+                    <h1>JAKE CRIS N. ATCHAZO</h1>
+                    <div class="contact">
+                        📍 San Pedro Apartado, Alcala, Pangasinan<br>
+                        📱 0993-538-7283 | 📧 atchazoj6@gmail.com
+                    </div>
+                </div>
+            </div>
+        </header>
 
-<div class="page-container">
-    
-    <nav class="top-nav">
-        <a href="index.html">Home</a>
-    </nav>
+        <main class="main">
+            <div class="section personal-data">
+                <h2>PERSONAL DATA</h2>
+                <ul>
+                    <li>👤 <strong>Born:</strong> October 24, 2004</li>
+                    <li>🇵🇭 <strong>Citizenship:</strong> Filipino</li>
+                    <li>✨ <strong>Status:</strong> Single</li>
+                    <li>📏 <strong>Height:</strong> 160 cm</li>
+                    <li>⚖️ <strong>Weight:</strong> 125 lbs</li>
+                    <li>⛪ <strong>Religion:</strong> Aglipay</li>
+                    <li>🗣️ <strong>Languages:</strong> Filipino, English, Ilocano</li>
+                </ul>
+            </div>
 
-    <div class="hero-left">
-        <div class="logo">DEV</div>
-        <h1>Hi, I am</h1>
-        <h2>Jake Cris N. Atchazo</h2>
-        <p>Junior Web Developer</p>
-        <div class="social-icons">
-            <a href="https://github.com/Tosshhii" target="_blank" title="GitHub">
-                <img src="images/github.png" alt="GitHub">
-            </a>
-            <a href="https://www.facebook.com/jk.atzo" target="_blank" title="Facebook">
-                <img src="images/facebook.png" alt="Facebook">
-            </a>
-            <a href="https://x.com/StJak33y" target="_blank" title="X (Twitter)">
-                <img src="images/X.png" alt="X (Twitter)">
-            </a>
-        </div>
+            <div class="section skills">
+                <h2>PROFESSIONAL SKILLS</h2>
+                <ul>
+                    <li>🧠 Problem Solving & Critical Thinking</li>
+                    <li>🔍 Research and Analytics</li>
+                    <li>⏱️ Time Management</li>
+                    <li>🚀 Adaptability & Fast Learning</li>
+                </ul>
+            </div>
+
+            <div class="section tech">
+                <h2>TECHNICAL SKILLS</h2>
+                <ul>
+                    <li>🌐 Network Configuration</li>
+                    <li>🛡️ Cybersecurity Fundamentals</li>
+                    <li>📶 IPv4 & IPv6 Addressing</li>
+                    <li>📱 Android Development</li>
+                    <li>💻 Web Development</li>
+                </ul>
+            </div>
+
+            <div class="section hobbies">
+                <h2>HOBBIES</h2>
+                <ul>
+                    <li>📖 Reading Manhwa</li>
+                    <li>🎧 Listening to Music</li>
+                    <li>🎮 Online Gaming</li>
+                    <li>🏸 Playing Badminton</li>
+                </ul>
+            </div>
+
+            <div class="section education-full">
+                <h2>EDUCATIONAL ATTAINMENT</h2>
+                <ul>
+                    <li>
+                        <span class="year">2022 - Present</span>
+                        <div class="school-name">College</div>
+                        <div class="school-location">🏫 Tarlac State University<br>San Isidro, Tarlac City, Philippines</div>
+                    </li>
+                    <li>
+                        <span class="year">2020 - 2022</span>
+                        <div class="school-name">Senior High School</div>
+                        <div class="school-location">🏫 San Pedro Apartado National High School<br>San Pedro Apartado, Alcala, Pangasinan</div>
+                    </li>
+                    <li>
+                        <span class="year">2016 - 2020</span>
+                        <div class="school-name">Junior High School</div>
+                        <div class="school-location">🏫 San Pedro Apartado National High School<br>San Pedro Apartado, Alcala, Pangasinan</div>
+                    </li>
+                    <li>
+                        <span class="year">2010 - 2016</span>
+                        <div class="school-name">Elementary</div>
+                        <div class="school-location">🏫 San Pedro Apartado Elementary School<br>San Pedro Apartado, Alcala, Pangasinan</div>
+                    </li>
+                </ul>
+            </div>
+        </main>
     </div>
-
-    <div class="hero-right">
-        <img src="images/jake.png" alt="Jake Cris N. Atchazo's Avatar">
-    </div>
-
-    <div class="it-berries-section">
-        <div class="it-berries-content">
-            <h3>Ready to Collaborate?</h3>
-            <p>Looking for my next opportunity to make a change. The digital way.</p>
-            <a href="mailto:atchazoj6@gmail.com" class="read-more">GET IN TOUCH</a>
-        </div>
-        <div class="it-berries-bg-text">IT</div>
-    </div>
-</div>
-
 </body>
 </html>
