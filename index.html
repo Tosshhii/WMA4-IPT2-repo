@@ -21,7 +21,7 @@
             --rbx-radius: 12px;
             --rbx-shadow: 0 4px 10px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.4);
         }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -44,7 +44,7 @@
             background: rgba(35,39,45,0.85);
             backdrop-filter: saturate(140%) blur(8px);
             color: var(--rbx-text);
-            padding: 10px 26px;
+            padding: max(10px, env(safe-area-inset-top)) max(26px, env(safe-area-inset-right)) 10px max(26px, env(safe-area-inset-left));
             display: flex;
             align-items: center;
             gap: 34px;
@@ -71,7 +71,7 @@
             color: var(--rbx-text-dim);
             text-decoration: none;
             padding: 10px 14px;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 1.7vw, 0.95rem);
             font-weight: 600;
             letter-spacing: 0.5px;
             position: relative;
@@ -103,8 +103,9 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 60px 30px 40px;
+            padding: 60px max(20px, env(safe-area-inset-right)) 40px max(20px, env(safe-area-inset-left));
             position: relative;
+            overflow: hidden; /* clip decorative background to avoid horizontal scroll */
         }
         /* Subtle drifting glow behind the hero */
         .landing-content::after {
@@ -152,7 +153,7 @@
             100% { transform: translateX(30%) rotate(8deg); }
         }
         .intro-box h1 {
-            font-size: clamp(2.6rem, 5vw, 3.75rem);
+            font-size: clamp(2.1rem, 6.2vw, 3.75rem);
             line-height: 1.05;
             margin: 0 0 16px;
             font-weight: 700;
@@ -164,7 +165,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
         .intro-box p {
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.6vw, 1.1rem);
             color: var(--rbx-text-dim);
             margin: 0 auto;
             max-width: 620px;
@@ -204,7 +205,7 @@
 
         /* Group portfolio styles (simple cards) */
         .collaborator-gallery-container {
-            padding: 50px 20px;
+            padding: 50px max(20px, env(safe-area-inset-right)) 60px max(20px, env(safe-area-inset-left));
             max-width: 800px;
             margin: auto;
             display: flex;
@@ -213,7 +214,7 @@
             text-align: center;
         }
         .collaborator-gallery-container h1 {
-            font-size: 2.2em;
+            font-size: clamp(1.6rem, 5.6vw, 2.2rem);
             margin-bottom: 20px;
             background: linear-gradient(90deg,#ffffff,#d6e2f5 70%,#ffffff);
             background-size: 200% auto;
@@ -239,8 +240,8 @@
         }
         .collaborator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: clamp(14px, 3.5vw, 20px);
         }
         .collaborator-card {
             background: var(--rbx-panel);
@@ -259,8 +260,8 @@
             border-color: var(--rbx-accent);
         }
         .collaborator-avatar {
-            width: 100px;
-            height: 100px;
+            width: clamp(78px, 20vw, 100px);
+            height: clamp(78px, 20vw, 100px);
             border-radius: 50%;
             border: 3px solid var(--rbx-accent);
             object-fit: cover;
@@ -306,8 +307,8 @@
         .splash.hidden { opacity: 0; visibility: hidden; }
         .diamond-container { position: relative; text-align: center; }
         .diamond {
-            width: 150px;
-            height: 150px;
+            width: clamp(110px, 28vw, 150px);
+            height: clamp(110px, 28vw, 150px);
             background: #0d6efd; /* vibrant blue */
             border-radius: 14px;
             transform: rotate(45deg) scale(1);
@@ -345,6 +346,16 @@
             .collaborator-gallery-container h1 { animation: none; }
             .collaborator-card:hover .collaborator-avatar { transform: none; }
         }
+
+        /* Mobile tweaks */
+        @media (max-width: 640px) {
+            nav { gap: 12px; }
+            .landing-content { padding-top: 46px; }
+            .intro-box { padding: 38px 22px 32px; border-radius: 20px; }
+            .cta-row { margin-top: 24px; }
+            .section-divider { margin-top: 0; }
+            .collaborator-gallery-container { padding-top: 28px; }
+        }
     </style>
 </head>
 <body>
@@ -353,7 +364,7 @@
         <div id="diamond" class="diamond" role="button" tabindex="0" aria-label="Enter site"></div>
         <div class="diamond-hint">Click to enter</div>
     </div>
-    <!-- If JS is disabled, users can still access content by navigating directly -->
+
 </div>
 
 <nav>
