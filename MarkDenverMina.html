@@ -3,29 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mark Denver D. Mina Portfolio</title>
+<title>Mark Denver D. Mina - Resume</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
 <style>
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
 
-  * { box-sizing: border-box; scroll-behavior: smooth; }
-
-  body {
+  html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #d0e8ff, #ffffff 70%);
     color: #333;
   }
 
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
   header {
-    background: linear-gradient(135deg, #1a73e8, #4a90e2, #1e3c72);
-    padding: 25px 20px;
+    background: linear-gradient(135deg, #1a73e8, #4a90e2);
+    color: white;
+    text-align: center;
+    padding: 20px;
     font-family: 'Press Start 2P', cursive;
     font-size: 18px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-    border-bottom: 4px solid #0d47a1;
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 1000;
   }
 
@@ -34,55 +41,68 @@
     font-size: 12px;
     margin-top: 5px;
     color: #dceeff;
-    text-shadow: none;
     line-height: 1.3;
   }
 
-  .layout {
-    display: flex;
-    margin-top: 20px;
-  }
-
   .sidebar {
-    width: 200px;
-    background: linear-gradient(180deg, #1a73e8, #4a90e2, #1e3c72);
-    color: white;
-    padding: 30px 10px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 15px;
-    position: sticky;
-    top: 100px;  
-    bottom: 0;    
+    background: linear-gradient(#4a90e2, #1a73e8);
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    z-index: 999;
   }
 
   .sidebar a {
     color: white;
     text-decoration: none;
     font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    background: linear-gradient(135deg, #4a90e2, #1a73e8);
-    padding: 10px;
+    font-size: 12px;
+    padding: 8px 12px;
     border-radius: 6px;
-    text-align: center;
+    background: linear-gradient(#6ea8ff, #1a73e8);
     transition: background 0.3s;
   }
 
   .sidebar a:hover {
-    background: linear-gradient(135deg, #6ea8ff, #1a73e8);
+    background: linear-gradient(#8fc4ff, #4a90e2);
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    overflow: hidden;
   }
 
   .container {
-    flex: 1;
     max-width: 900px;
-    margin: 0 30px 30px 30px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1; 
+    overflow-y: auto;
+  }
+
+  .profile {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #1a73e8;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 
   section {
     margin-bottom: 30px;
     background-color: #ffffff;
     border-radius: 12px;
-    overflow: hidden;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
@@ -97,7 +117,8 @@
     border-radius: 6px;
     box-shadow: inset 0 -3px 5px rgba(0,0,0,0.1);
   }
-  .edu-card {
+
+  .edu-card, .skill-card {
     background: linear-gradient(135deg, #e6f0ff, #cce0ff);
     padding: 15px 20px;
     margin-bottom: 15px;
@@ -107,19 +128,19 @@
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .edu-card:hover {
+  .edu-card:hover, .skill-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   }
 
-  .edu-card h3 {
+  .edu-card h3, .skill-card h3 {
     margin: 0 0 5px 0;
     color: #1a73e8;
     font-family: 'Press Start 2P', cursive;
     font-size: 14px;
   }
 
-  .edu-card p {
+  .edu-card p, .skill-card p {
     margin: 0 0 5px 0;
     color: #333;
   }
@@ -127,27 +148,6 @@
   .edu-year {
     font-size: 12px;
     color: #555;
-  }
-  .skill-card {
-    background: linear-gradient(135deg, #e6f0ff, #cce0ff);
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-left: 5px solid #1a73e8;
-    border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .skill-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  }
-
-  .skill-card h3 {
-    margin: 0 0 10px 0;
-    color: #1a73e8;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
   }
 
   .skill-list {
@@ -166,8 +166,10 @@
     display: inline-block;
   }
 
-
-  .label { font-weight: bold; color: #0056b3; }
+  .label {
+    font-weight: bold;
+    color: #0056b3;
+  }
 
   footer {
     text-align: center;
@@ -187,7 +189,7 @@
 <header>
   Mark Denver D. Mina
   <div class="header-subtext">
-    📍 Castillo, Concepcion, Tarlac<br />
+    📍 Castillo, Concepcion, Tarlac<br>
     📧 minamarkdenver@gmail.com | 📞 09387550853
   </div>
 </header>
@@ -203,99 +205,95 @@
   </div>
 
   <div class="container">
+    <div class="profile">
+      <img src="images/profile.jpg" alt="Mark Denver D. Mina" class="profile-pic">
+    </div>
 
     <section id="about">
       <div class="section-header">📌 About</div>
-      <p>Enthusiastic and motivated with strong communication, teamwork, and problem-solving skills. Seeking to apply my abilities in a position where I can contribute to the team and gain valuable work experience.</p>
+      <p>Enthusiastic and motivated with strong communication, teamwork, and problem-solving skills. 
+        Seeking to apply my abilities in a position where I can contribute to the team and gain valuable work experience.</p>
     </section>
 
     <section id="personal">
       <div class="section-header">🙋 Personal Information</div>
       <p><span class="label">Name:</span> Mark Denver D. Mina</p>
       <p><span class="label">Date of Birth:</span> March 26, 2004</p>
-      <p><span class="label">Place of Birth:</span> Concepcion, Tarlac</p>
       <p><span class="label">Citizenship:</span> Filipino</p>
+      <p><span class="label">Height:</span> 5'6"</p>
+      <p><span class="label">Weight:</span> 65kg</p>
+      <p><span class="label">Language:</span> Tagalog, Kapampangan, English</p>
     </section>
 
-   <section id="education">
-  <div class="section-header">🎓 Academic Background</div>
+    <section id="education">
+      <div class="section-header">🎓 Academic Background</div>
+      <div class="edu-card">
+        <h3>College</h3>
+        <p>Tarlac State University - BSIT Specialized in Web & Mobile App</p>
+        <span class="edu-year">2022 - Present</span>
+      </div>
+      <div class="edu-card">
+        <h3>Senior High School</h3>
+        <p>Benigno S. Aquino National High School (TVL - CSS)</p>
+        <span class="edu-year">2020 - 2022</span>
+      </div>
+      <div class="edu-card">
+        <h3>Junior High School</h3>
+        <p>Benigno S. Aquino National High School</p>
+        <span class="edu-year">2016 - 2020</span>
+      </div>
+      <div class="edu-card">
+        <h3>Elementary</h3>
+        <p>Castillo Elementary School</p>
+        <span class="edu-year">2010 - 2016</span>
+      </div>
+    </section>
 
-  <div class="edu-card">
-    <h3>College</h3>
-    <p>Tarlac State University - BSIT Specialized in Web & Mobile App</p>
-    <span class="edu-year">2022 - Present</span>
-  </div>
+    <section id="skills">
+      <div class="section-header">💻 Skills</div>
+      <div class="skill-card">
+        <h3>Interpersonal Skills</h3>
+        <div class="skill-list">
+          <span class="skill">Critical Thinking</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Teamwork</span>
+          <span class="skill">Communication</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Technical Skills</h3>
+        <div class="skill-list">
+          <span class="skill">Microsoft Office</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">VS Code</span>
+          <span class="skill">Web Development</span>
+          <span class="skill">Database Management</span>
+          <span class="skill">Basic Networking</span>
+        </div>
+      </div>
+    </section>
 
-  <div class="edu-card">
-    <h3>Senior High School</h3>
-    <p>Benigno S. Aquino National High School (TVL - CSS)</p>
-    <span class="edu-year">2020 - 2022</span>
-  </div>
-
-  <div class="edu-card">
-    <h3>Junior High School</h3>
-    <p>Benigno S. Aquino National High School</p>
-    <span class="edu-year">2016 - 2020</span>
-  </div>
-
-  <div class="edu-card">
-    <h3>Elementary</h3>
-    <p>Castillo Elementary School</p>
-    <span class="edu-year">2010 - 2016</span>
-  </div>
-</section>
-
- <section id="skills">
-  <div class="section-header">💻 Skills</div>
-
-  <div class="skill-card">
-    <h3>Interpersonal Skills</h3>
-    <div class="skill-list">
-      <span class="skill">Critical Thinking</span>
-      <span class="skill">Problem Solving</span>
-      <span class="skill">Teamwork</span>
-      <span class="skill">Communication</span>
-    </div>
-  </div>
-
-  <div class="skill-card">
-    <h3>Technical Skills</h3>
-    <div class="skill-list">
-      <span class="skill">Microsoft Office</span>
-      <span class="skill">GitHub</span>
-      <span class="skill">VS Code</span>
-      <span class="skill">Web Development</span>
-      <span class="skill">Database Management</span>
-      <span class="skill">Basic Networking Configuration</span>
-    </div>
-  </div>
-</section>
-
-   <section id="certifications">
-  <div class="section-header">🏆 Certifications</div>
-
-  <p><span class="label">Software Development:</span> "Hour of Code" – September 2025</p>
-  <img src="C:\Users\63950\Desktop\images\hoc.jpg" alt="Hour of Code Certificate" style="width:100%; max-width:400px; border-radius:6px; margin-bottom:15px;">
-
-  <p><span class="label">Network Design and Implementation:</span> "IoT in Smart Cities" – September 2025</p>
-  <img src="C:\Users\63950\Desktop\images\iot.jpg" alt="IoT in Smart Cities Certificate" style="width:100%; max-width:400px; border-radius:6px; margin-bottom:15px;">
-
-  <p><span class="label">System Admin:</span> "Data Privacy Awareness" – September 2025</p>
-  <img src="C:\Users\63950\Desktop\images\dpa.jpg" alt="Data Privacy Awareness Certificate" style="width:100%; max-width:400px; border-radius:6px; margin-bottom:15px;">
-</section>
-
+    <section id="certifications">
+      <div class="section-header">🏆 Certifications</div>
+      <p><span class="label">Software Development:</span> "Hour of Code" – September 2025</p>
+      <img src="images/hoc.jpg" alt="Hour of Code Certificate" style="width:100%; max-width:400px; border-radius:6px; margin-bottom:15px;">
+      <p><span class="label">Network Design and Implementation:</span> "IoT in Smart Cities" – September 2025</p>
+      <img src="images/iot.jpg" alt="IoT in Smart Cities Certificate" style="width:100%; max-width:400px; border-radius:6px; margin-bottom:15px;">
+      <p><span class="label">System Admin:</span> "Data Privacy Awareness" – September 2025</p>
+      <img src="images/dpa.jpg" alt="Data Privacy Awareness Certificate" style="width:100%; max-width:400px; border-radius:6px; margin-bottom:15px;">
+    </section>
 
     <section id="contact">
       <div class="section-header">📇 Contact Information</div>
       <p><span class="label">Location:</span> Castillo, Concepcion, Tarlac</p>
-      <p><span class="label">Phone:</span> 09387550853</p>
-      <p><span class="label">Email:</span> minamarkdenver@gmail.com</p>
+      <p><span class="label">Phone:</span> <a href="tel:09387550853">09387550853</a></p>
+      <p><span class="label">Email:</span> <a href="mailto:minamarkdenver@gmail.com">minamarkdenver@gmail.com</a></p>
+
     </section>
 
     <footer>
-     © 2025 Mark Denver D. Mina
+      © 2025 Mark Denver D. Mina
     </footer>
-
   </div>
 </div>
 
