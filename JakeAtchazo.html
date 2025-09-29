@@ -1,65 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jake Cris N. Atchazo - Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jake Cris N Atchazo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <style>
         :root {
-            --color-primary: #0099E1;
-            --color-secondary: #4CAF50;
-            --color-tertiary: #FF3333;
+            --color-primary: #0099e1;
+            --color-secondary: #4caf50;
+            --color-tertiary: #ff3333;
             --color-text-dark: #333;
-            --color-background-blue: #E3F2FD;
-            --color-background-green: #E8F5E8;
-            --font-heading: 'Fredoka One', cursive;
-            --font-body: 'Nunito', sans-serif;
+            --color-background-blue: #e3f2fd;
+            --color-background-green: #e8f5e8;
+            --font-heading: "Fredoka One", cursive;
+            --font-body: "Nunito", sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-body);
-            background: linear-gradient(135deg, #87CEEB 0%, var(--color-secondary) 50%, #8B4513 100%);
-            height: 100vh;
-            overflow: hidden;
+            background: linear-gradient(135deg, #87ceeb 0%, var(--color-secondary) 50%, #8b4513 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        nav {
+            background: #fff;
+            padding: 15px 60px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        #home {
+                scroll-margin-top: 100px;
+        }
+
+        nav a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 1.1em;
+            position: relative;
+            transition: color 0.25s;
+            padding: 6px 8px;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--color-secondary);
+            transition: width 0.25s;
+        }
+
+        nav a:hover {
+            color: var(--color-secondary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         .resume {
-            height: 100vh;
             display: grid;
-            grid-template-rows: 25vh 75vh;
+            grid-template-rows: auto 1fr;
             color: white;
+            max-width: 1100px;
+            margin: 30px auto;
+            gap: 30px;
         }
 
-        /* --- Header Section --- */
         .header {
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             display: flex;
             align-items: center;
-            padding: 0 60px;
+            padding: 30px 60px;
             position: relative;
-            box-shadow: inset 0 -10px 0 rgba(0,0,0,0.2);
+            box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.15);
+            border-radius: 18px;
+            min-height: 220px;
         }
 
         .header::before {
-            content: '🚀✨👨‍💻';
+            content: "🚀✨👨‍💻";
             position: absolute;
-            top: 20px;
-            right: 60px;
-            font-size: 3em;
-            opacity: 0.3;
+            top: 16px;
+            right: 40px;
+            font-size: 2.8em;
+            opacity: 0.18;
         }
 
         .profile-section {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 36px;
             z-index: 2;
         }
 
@@ -69,205 +118,179 @@
             border-radius: 20px;
             border: 6px solid white;
             object-fit: cover;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            background: rgba(255,255,255,0.08);
         }
 
         .header-text h1 {
             font-family: var(--font-heading);
-            font-size: 3.5em;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
-            margin-bottom: 10px;
+            font-size: 3.2em;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.35);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
-        .contact {
-            font-size: 1.3em;
+        .header-text .subtitle {
+            font-size: 1.15em;
             font-weight: 600;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* --- Main Content Section --- */
         .main {
             background: white;
             color: var(--color-text-dark);
-            padding: 40px 60px;
+            padding: 36px 48px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            overflow-y: auto;
+            gap: 32px;
+            border-radius: 18px;
+            border: 4px solid var(--color-secondary);
+            box-shadow:
+                inset 3px 3px 10px rgba(255,255,255,0.8),
+                inset -3px -3px 10px rgba(0,0,0,0.06),
+                0 18px 40px rgba(0,0,0,0.12);
         }
 
-        /* Updated Grid Layout */
-        .personal-data {
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
-        }
-        .skills {
-            grid-column: 2 / 3;
-            grid-row: 1;
-        }
-        .tech {
-            grid-column: 2 / 3;
-            grid-row: 2;
-        }
-        .hobbies {
-            grid-column: 1 / 2;
-            grid-row: 2;
-        }
-        .education-full {
+        section {
             grid-column: 1 / -1;
-            grid-row: 3;
+            scroll-margin-top: 90px;
         }
 
         .section {
             background: linear-gradient(145deg, #f8f9fa, #ffffff);
-            border-radius: 20px;
-            padding: 30px;
-            border: 4px solid var(--color-secondary);
-            box-shadow:
-                inset 3px 3px 10px rgba(255,255,255,0.8),
-                inset -3px -3px 10px rgba(0,0,0,0.1),
-                0 8px 25px rgba(0,0,0,0.15);
+            border-radius: 16px;
+            padding: 26px;
+            border: 3px solid rgba(76,175,80,0.12);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
             position: relative;
+            margin-bottom: 18px;
+        }
+
+        .section + .section {
+            margin-top: 8px;
         }
 
         .section h2 {
             font-family: var(--font-heading);
             color: var(--color-primary);
-            font-size: 1.8em;
-            margin-bottom: 20px;
+            font-size: 1.6em;
+            margin-bottom: 18px;
             text-align: center;
             background: linear-gradient(45deg, var(--color-background-green), var(--color-background-blue));
-            padding: 15px;
-            border-radius: 15px;
-            border: 3px solid var(--color-secondary);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 12px;
+            border-radius: 12px;
+            border: 2px solid var(--color-secondary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
         }
 
         .section ul {
             list-style: none;
+            padding-left: 6px;
         }
 
         .section li {
-            margin: 10px 0;
-            padding: 8px 0;
+            margin: 8px 0;
+            padding: 6px 0;
             font-weight: 600;
-            position: relative;
-            /* No padding-left here since emojis are inline */
         }
-        
-        /* This CSS rule is no longer needed */
-        /*
-        .section li::before {
-            content: '📌';
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-        }
-        */
 
         .education li {
             background: linear-gradient(135deg, var(--color-background-blue), var(--color-background-green));
-            padding: 20px;
-            border-radius: 15px;
+            padding: 16px;
+            border-radius: 12px;
             border-left: 6px solid var(--color-tertiary);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-            position: relative;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+            margin-bottom: 12px;
         }
-
-        /* This CSS rule is no longer needed */
-        /*
-        .education li::before {
-            content: '🏫';
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 2em;
-        }
-        */
 
         .school-name {
-            font-size: 1.2em;
+            font-size: 1.08em;
             color: var(--color-primary);
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .school-location {
             color: #666;
             font-size: 0.95em;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .year {
             color: var(--color-tertiary);
             font-weight: 800;
-            font-size: 1.1em;
+            font-size: 1.0em;
             float: right;
-            background: rgba(255,51,51,0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
+            background: rgba(255,51,51,0.08);
+            padding: 4px 10px;
+            border-radius: 18px;
         }
 
-        /* --- Responsive Design --- */
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 12px;
+            flex-wrap: nowrap;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-weight: 700;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .contact-links img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            display: inline-block;
+            border-radius: 8px;
+            border: 2px solid rgba(0,0,0,0.04);
+            background: white;
+        }
+
         @media (max-width: 1200px) {
             .main {
-                grid-template-columns: 1fr;
-            }
-            .header, .main {
-                padding: 30px 40px;
-            }
-            .personal-data, .skills, .tech, .hobbies, .education-full {
-                grid-column: auto;
-                grid-row: auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                overflow-y: auto;
-            }
-            .resume {
-                height: auto;
-                grid-template-rows: auto auto;
-            }
-            .main {
-                grid-template-columns: 1fr;
-                padding: 20px;
-                gap: 20px;
-            }
-            .header {
-                padding: 20px;
-            }
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            .header-text h1 {
-                font-size: 2.5em;
-            }
-            .education ul {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#personal">Personal Data</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Get in Touch</a>
+    </nav>
+
     <div class="resume">
-        <header class="header">
+        <header class="header" id="home" aria-label="Home">
             <div class="profile-section">
                 <img src="images/jake.png" alt="Jake Cris N. Atchazo" class="profile-pic" onerror="this.style.display='none'">
                 <div class="header-text">
                     <h1>JAKE CRIS N. ATCHAZO</h1>
-                    <div class="contact">
+                    <div class="subtitle contact">
                         📍 San Pedro Apartado, Alcala, Pangasinan<br>
-                        📱 0993-538-7283 | 📧 atchazoj6@gmail.com
+                        📱 <a href="tel:+639935387283" style="color:inherit; text-decoration:none; font-weight:800;">0993-538-7283</a> |
+                        📧 <a href="mailto:atchazoj6@gmail.com" style="color:inherit; text-decoration:none; font-weight:800;">atchazoj6@gmail.com</a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <main class="main">
-            <div class="section personal-data">
+        <main class="main" role="main">
+            <section class="section personal-data" id="personal">
                 <h2>PERSONAL DATA</h2>
                 <ul>
                     <li>👤 <strong>Born:</strong> October 24, 2004</li>
@@ -278,9 +301,9 @@
                     <li>⛪ <strong>Religion:</strong> Aglipay</li>
                     <li>🗣️ <strong>Languages:</strong> Filipino, English, Ilocano</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="section skills">
+            <section class="section skills" id="skills">
                 <h2>PROFESSIONAL SKILLS</h2>
                 <ul>
                     <li>🧠 Problem Solving & Critical Thinking</li>
@@ -288,10 +311,8 @@
                     <li>⏱️ Time Management</li>
                     <li>🚀 Adaptability & Fast Learning</li>
                 </ul>
-            </div>
 
-            <div class="section tech">
-                <h2>TECHNICAL SKILLS</h2>
+                <h2 style="margin-top:22px;">TECHNICAL SKILLS</h2>
                 <ul>
                     <li>🌐 Network Configuration</li>
                     <li>🛡️ Cybersecurity Fundamentals</li>
@@ -299,9 +320,9 @@
                     <li>📱 Android Development</li>
                     <li>💻 Web Development</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="section hobbies">
+            <section class="section hobbies" id="hobbies">
                 <h2>HOBBIES</h2>
                 <ul>
                     <li>📖 Reading Manhwa</li>
@@ -309,33 +330,58 @@
                     <li>🎮 Online Gaming</li>
                     <li>🏸 Playing Badminton</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="section education-full">
+            <section class="section education-full" id="education">
                 <h2>EDUCATIONAL ATTAINMENT</h2>
                 <ul>
-                    <li>
+                    <li class="education-item">
                         <span class="year">2022 - Present</span>
                         <div class="school-name">College</div>
                         <div class="school-location">🏫 Tarlac State University<br>San Isidro, Tarlac City, Philippines</div>
                     </li>
-                    <li>
+                    <li class="education-item">
                         <span class="year">2020 - 2022</span>
                         <div class="school-name">Senior High School</div>
                         <div class="school-location">🏫 San Pedro Apartado National High School<br>San Pedro Apartado, Alcala, Pangasinan</div>
                     </li>
-                    <li>
+                    <li class="education-item">
                         <span class="year">2016 - 2020</span>
                         <div class="school-name">Junior High School</div>
                         <div class="school-location">🏫 San Pedro Apartado National High School<br>San Pedro Apartado, Alcala, Pangasinan</div>
                     </li>
-                    <li>
+                    <li class="education-item">
                         <span class="year">2010 - 2016</span>
                         <div class="school-name">Elementary</div>
                         <div class="school-location">🏫 San Pedro Apartado Elementary School<br>San Pedro Apartado, Alcala, Pangasinan</div>
                     </li>
                 </ul>
-            </div>
+            </section>
+
+            <section class="section" id="contact" aria-label="Get in Touch">
+                <h2>GET IN TOUCH</h2>
+
+                <div class="contact-row">
+                    <div class="contact-info" style="min-width:240px;">
+                        <div><strong>Phone:</strong> <a href="tel:+639935387283" style="color:inherit; text-decoration:none;">0993-538-7283</a></div>
+                        <div><strong>Email:</strong> <a href="mailto:atchazoj6@gmail.com" style="color:inherit; text-decoration:none;">atchazoj6@gmail.com</a></div>
+                    </div>
+
+                    <div style="flex:1"></div>
+
+                    <div class="contact-links" aria-hidden="false">
+                        <a href="#" title="Facebook (profile link optional)">
+                            <img src="images/Facebook.png" alt="Facebook" onerror="this.style.display='none'">
+                        </a>
+                        <a href="#" title="X / Twitter (profile link optional)">
+                            <img src="images/X.png" alt="X (Twitter)" onerror="this.style.display='none'">
+                        </a>
+                        <a href="#" title="GitHub (profile link optional)">
+                            <img src="images/github.png" alt="GitHub" onerror="this.style.display='none'">
+                        </a>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 </body>
